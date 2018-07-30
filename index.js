@@ -30,16 +30,28 @@ app.get('/',(req,res) => {
 	res.render('index');
 });
 
-// rota maior
-app.get('/major',(req,res,next) => {
+app.get('/major',(req,res) => {
   res.render('major');
-  next();
+});
+
+app.get('/minor',(req,res) => {
+  res.render('minor');
+});
+
+
+
+// rota maior
+app.get('/major/:nome',(req,res) => {
+  const nome = req.params.nome;
+  res.render('major');
+
 });
 
 // rota minor
-app.get('/minor',(req,res,next) => {
+app.get('/minor/:nome',(req,res) => {
+  const nome = req.params.nome;
   res.render('minor');
-  next();
+
 });
 
 app.post('/check',(req,res) => {
